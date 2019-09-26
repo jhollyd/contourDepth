@@ -1,0 +1,13 @@
+#Makefile_omp_executable
+#  use: makes executable for .c code using omp and compiler icc 
+#  type: "cp Makefile_omp_executable Makefile"
+#  type: "make <ccode_name>" (without .c file extension)
+#  output: the executable <ccode_name>
+#
+CC=icc
+CFLAGS=-Wall -O3 -xHost -ipo -qopenmp
+%: %.c
+	$(CC) $(CFLAGS) -o $@ $<
+clean:
+	rm *.o
+

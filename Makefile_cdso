@@ -1,0 +1,8 @@
+#Makefile_cdso 
+#  use: make the shared object library for R using compiler icc 
+#  type: "cp Makefile_cdso Makefile"
+#  type "make"
+#  output: cd.so
+cd.so: omprSD.c omprTD.c omprXY.c 
+	icc -shared -fPIC -I/usr/include/R -qopenmp -o cd.so omprSD.c omprTD.c omprXY.c
+#
